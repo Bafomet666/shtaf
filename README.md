@@ -1,0 +1,2 @@
+# shtaf
+stop_shtraf
