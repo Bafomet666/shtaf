@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "Запрещенные сайты",
+  "version": "1.6",
+  "description": "Защита от штрафов для OSINT специалистов",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Запрещенные сайты"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.google.com/search*",
+        "*://www.google.ru/search*",
+        "*://www.google.co.uk/search*",
+        "*://yandex.ru/search*",
+        "*://yandex.com/search*",
+        "*://ya.ru/search*",
+        "*://duckduckgo.com/*",
+        "*://bing.com/search*",
+        "*://www.bing.com/search*",
+        "*://search.brave.com/*"
+      ],
+      "js": [
+        "content_script.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "badlist.txt",
+        "badwords.txt"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
